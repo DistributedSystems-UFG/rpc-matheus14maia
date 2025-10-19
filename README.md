@@ -29,6 +29,15 @@ Also make sure it is using one of the ports left open for incoming TCP connectio
 
     python3 client.py
 
-### Now add other remote procedures to the server and change the client to test them
+### Funcionalidades Implementadas
 
-You may add the same remote procedures that you added in the sockets activity.
+O `server.py` agora expõe um conjunto completo de manipulações da lista, tratando a concorrência com `threading.Lock`:
+
+* `exposed_value()`: Retorna o valor atual da lista.
+* `exposed_append(data)`: Adiciona um elemento ao final da lista.
+* `exposed_search(data)`: Verifica se um elemento existe na lista.
+* `exposed_remove(data)`: Remove a primeira ocorrência de um elemento.
+* `exposed_insert(index, data)`: Insere um elemento em um índice específico.
+* `exposed_sort(reverse=False)`: Ordena a lista (crescente ou decrescente).
+
+O `client.py` foi atualizado para se conectar ao servidor e testar, em ordem, todas essas novas funcionalidades.
